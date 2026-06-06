@@ -16,8 +16,8 @@ import hero from "../../assets/hero.png";
 
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
-      {/* <RadialGradientBackground variant="hero" /> */}
+    <section className="relative min-h-screen flex items-center bg-background">
+      <RadialGradientBackground variant="hero" />
 
       {/* content container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 w-full">
@@ -76,12 +76,12 @@ function Hero() {
           <div>
             <FadeIn delay={200}>
               <div className="relative">
-                <div className="relative overflow-hidden rounded-2xl aspect-4/5 max-w-[500px] ml-auto group">
+                <div className="relative overflow-hidden rounded-2xl aspect-4/5 max-w-[500px] mx-auto md:ml-auto group">
                   <div className="absolute inset-0 rounded-2xl overflow-hidden">
                     <div className="absolute inset-[-2px] bg-linear-to-r from-primary/20 via-primary/10 to-primary animate-spin-slow rounded-2xl"></div>
                   </div>
                   {/* image container */}
-                  <div className="relative rounded-2xl overflow-hidden m-[2.5px] h-[calc(100%-4px)]">
+                  <div className="relative rounded-2xl overflow-hidden w-full m-[2.5px] h-[calc(100%-4px)]">
                     <img
                       src={hero}
                       alt="developer at work"
@@ -119,12 +119,11 @@ function Hero() {
       <FadeIn delay={700}>
         <button
           onClick={() => scrollToSection("about")}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70 hover:text-primary transition-colors duration-300"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70 hover:text-primary transition-colors duration-300 z-999" // 👈 add z-20
         >
           <span className="text-sm tracking-wider">Scroll</span>
-
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center p-1">
-            <div className="w-1 h-2 bg-primary rounded-full animate-scroll"></div>
+            <div className="w-1 h-2 bg-primary rounded-full animate-scroll" />
           </div>
         </button>
       </FadeIn>
