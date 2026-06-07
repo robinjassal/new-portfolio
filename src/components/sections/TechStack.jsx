@@ -77,7 +77,7 @@ const TechStack = () => {
                                     >
                                         <Icon
                                             size={26}
-                                            style={{ color: isActive ? skill.color : "rgba(255,255,255,0.6)" }}
+                                            style={{ color: skill.color }}
                                             className="transition-all duration-300 group-hover:scale-110"
                                         />
                                     </div>

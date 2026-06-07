@@ -8,45 +8,43 @@ import RadialGradientBackground from "../backgrounds/RadialGradientBackground";
 const experiences = [
     {
         role: "Frontend Developer",
-        company: "TechNova Solutions",
+        company: "NJGRAPHICA",
         type: "current",
         badge: "Current",
         employment: "Full-time",
-        period: "Jan 2024 — Present",
-        duration: "1 yr+",
-        location: "Remote",
-        logo: "/company-logos/technova.png",
-        logoFallback: "TN",
+        period: "Nov 2025 — Present",
+        duration: "Present",
+        location: "Mandi Gobindgarh",
+        logo: "/njgraphica-logo.png",
+        logoFallback: "NJ",
         description:
-            "Leading frontend development for enterprise SaaS products with a focus on scalable UI architecture, performance, and design-to-development execution.",
+            "Developing and delivering modern client-facing web applications using React.js, Next.js, and Tailwind CSS, transforming Figma designs into high-performance, responsive user interfaces.",
         bullets: [
-            "Migrated legacy jQuery codebase to React, reducing bundle size by 40%",
-            "Built a reusable design system used across 3 internal products",
-            "Improved page load speed from 6s to 1.5s using lazy loading",
-            "Collaborated with backend teams to define clean REST API contracts",
+            "Developed and delivered client landing pages using React.js, Next.js, and Tailwind CSS from Figma designs",
+            "Collaborated with design and backend teams to build responsive, pixel-perfect user interfaces",
+            "Implemented component-driven architecture and reusable UI patterns across projects",
+            "Ensured cross-browser compatibility and responsive behavior across all device sizes",
         ],
-        skills: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "REST APIs", "Figma"],
     },
     {
-        role: "Junior Web Developer",
-        company: "PixelCraft Agency",
+        role: "Frontend Developer",
+        company: "Appoctet Technologies Pvt. Ltd.",
         type: "past",
         badge: "Completed",
         employment: "Full-time",
-        period: "Jan 2023 — Dec 2023",
-        duration: "1 yr",
-        location: "On-site",
-        logo: "/company-logos/pixelcraft.png",
-        logoFallback: "PC",
+        period: "Jun 2024 — Oct 2025",
+        duration: "1 yr 5 mos",
+        location: "Mumbai",
+        logo: "/appoctet-logo.jpg",
+        logoFallback: "AT",
         description:
-            "Developed responsive websites and landing pages for multiple clients, working closely with designers, marketers, and project managers.",
+            "Built scalable admin dashboards and web applications for multi-vendor platforms, focusing on responsive UI development, API integration, and reusable component architecture.",
         bullets: [
-            "Delivered 12+ production websites from Figma handoff to live deployment",
-            "Created pixel-perfect responsive layouts for all major screen sizes",
-            "Integrated Stripe, Mailchimp, and CRM APIs for client websites",
-            "Introduced component-level testing to reduce bugs in delivery",
+            "Built responsive UI for a multi-vendor store admin panel using React.js, Tailwind CSS, HTML, and CSS",
+            "Integrated RESTful APIs to manage dynamic data and application workflows",
+            "Created reusable component libraries to improve development speed and scalability",
+            "Collaborated in Agile sprints, code reviews, and cross-functional product discussions",
         ],
-        skills: ["HTML", "CSS", "JavaScript", "React.js", "Figma", "Stripe API"],
     },
 ];
 
@@ -95,14 +93,14 @@ const Experience = () => (
 
                 {experiences.map((exp, i) => (
                     <FadeIn key={i} delay={100 + i * 80}>
-                        <div className="relative mb-6 last:mb-0">
+                        <div className="relative mb-6 last:mb-4">
 
                             {/* Dot */}
                             <div className="absolute -left-[41px] top-7">
                                 <div
                                     className={`w-6 h-6 rounded-full flex items-center justify-center ${exp.type === "current"
-                                            ? "bg-primary ring-4 ring-primary/20 ring-offset-0"
-                                            : "bg-white/8 border-2 border-white/20"
+                                        ? "bg-primary ring-4 ring-primary/20 ring-offset-0"
+                                        : "bg-white/8 border-2 border-white/20"
                                         }`}
                                 >
                                     <div
@@ -115,8 +113,8 @@ const Experience = () => (
                             {/* Card */}
                             <div
                                 className={`rounded-2xl border p-6 md:p-8 transition-all duration-300 ${exp.type === "current"
-                                        ? "bg-white/[0.07] border-primary/30 hover:border-primary/55 hover:bg-white/[0.09]"
-                                        : "bg-white/[0.05] border-white/12 hover:bg-white/[0.07] hover:border-primary/25"
+                                    ? "bg-white/[0.07] border-primary/30 hover:border-primary/55 hover:bg-white/[0.09]"
+                                    : "bg-white/[0.05] border-white/12 hover:bg-white/[0.07] hover:border-primary/25"
                                     }`}
                             >
                                 {/* Top area */}
@@ -130,7 +128,7 @@ const Experience = () => (
                                         <img
                                             src={exp.logo}
                                             alt={`${exp.company} logo`}
-                                            className="relative z-10 w-full h-full object-contain p-2.5"
+                                            className="relative z-10 w-full h-full object-cover"
                                             onError={(e) => { e.currentTarget.style.display = "none"; }}
                                         />
                                     </div>
@@ -149,8 +147,8 @@ const Experience = () => (
                                             <div className="flex flex-wrap gap-2">
                                                 <span
                                                     className={`text-[11px] px-3 py-1.5 rounded-full border font-medium ${exp.type === "current"
-                                                            ? "bg-primary/15 text-blue-300 border-primary/30"
-                                                            : "bg-white/6 text-white/45 border-white/12"
+                                                        ? "bg-primary/15 text-blue-300 border-primary/30"
+                                                        : "bg-white/6 text-white/45 border-white/12"
                                                         }`}
                                                 >
                                                     {exp.badge}
@@ -202,18 +200,6 @@ const Experience = () => (
                                         </li>
                                     ))}
                                 </ul>
-
-                                {/* Skills */}
-                                <div className="flex flex-wrap gap-2 pt-5 border-t border-white/8">
-                                    {exp.skills.map((skill) => (
-                                        <span
-                                            key={skill}
-                                            className="text-xs px-3 py-1.5 rounded-full bg-white/6 text-white/55 border border-white/12 hover:bg-primary/12 hover:text-blue-300 hover:border-primary/30 transition-all duration-200"
-                                        >
-                                            {skill}
-                                        </span>
-                                    ))}
-                                </div>
                             </div>
                         </div>
                     </FadeIn>
@@ -223,7 +209,7 @@ const Experience = () => (
                 <FadeIn delay={320}>
                     <div className="flex items-center gap-3 mt-10">
                         <div className="h-px flex-1 bg-white/8" />
-                        <span className="text-xs text-white/30">Start of journey · 2023</span>
+                        <span className="text-xs text-white/30">Start of journey ·June  2024</span>
                         <div className="h-px flex-1 bg-white/8" />
                     </div>
                 </FadeIn>

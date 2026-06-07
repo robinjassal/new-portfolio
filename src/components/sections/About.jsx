@@ -102,7 +102,7 @@ const About = () => (
                     <div className="flex flex-col gap-4">
 
                         {/* Wide card */}
-                        <div className="flex items-start gap-5 p-7 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-blue-500/30 hover:bg-white/[0.06] transition-all duration-300">
+                        <div className="flex flex-col md:flex-row items-start gap-5 p-7 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-blue-500/30 hover:bg-white/[0.06] transition-all duration-300">
                             <div className="shrink-0 w-11 h-11 rounded-xl bg-blue-500/15 border border-blue-500/20 flex items-center justify-center">
                                 <Code2 size={20} className="text-blue-400" />
                             </div>
@@ -147,8 +147,7 @@ const About = () => (
                         {/* CTA card */}
                         <div className="p-7 rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-800/10 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300">
                             <p className="text-base text-white/60 mb-5 leading-relaxed">
-                                Interested in working together? I'm currently open to freelance
-                                projects and full-time opportunities.
+                                Interested in working together? I'm open for full-time opportunities.
                             </p>
                             <div className="flex flex-wrap gap-3">
 

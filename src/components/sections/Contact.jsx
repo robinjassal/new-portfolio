@@ -5,30 +5,22 @@ import {
 } from "lucide-react";
 import FadeIn from "../animations/FadeIn";
 import RadialGradientBackground from "../backgrounds/RadialGradientBackground";
-import { PERSONAL_INFO } from "../../utils/constants";
-import { BsGithub, BsTwitterX } from "react-icons/bs";
-import { FaLinkedinIn } from "react-icons/fa";
 
 const contactInfo = [
     {
         icon: Mail,
         label: "Email",
-        value: "yourname@gmail.com",
-        href: "mailto:yourname@gmail.com",
+        value: "robinjassal601@gmail.com",
+        href: "mailto:robinjassal601@gmail.com",
     },
     {
         icon: MapPin,
         label: "Location",
-        value: "Ludhiana, Punjab, India",
+        value: "Punjab, India",
         href: null,
     },
 ];
 
-const socials = [
-    { icon: BsGithub, label: "GitHub", href: "https://github.com" },
-    { icon: FaLinkedinIn, label: "LinkedIn", href: "https://linkedin.com" },
-    { icon: BsTwitterX, label: "Twitter", href: "https://twitter.com" },
-];
 
 const Contact = () => {
     const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
@@ -54,16 +46,21 @@ const Contact = () => {
         const errs = validate();
         if (Object.keys(errs).length) { setErrors(errs); return; }
 
+        const { name, email, subject, message } = form;
         setStatus("loading");
         try {
-            // ── Replace this block with your real API call ──
-            await new Promise((res) => setTimeout(res, 1800));
-            // Example real call:
-            // await fetch("/api/contact", {
-            //   method: "POST",
-            //   headers: { "Content-Type": "application/json" },
-            //   body: JSON.stringify(form),
-            // });
+            const response = await fetch('https://68e797af10e3f82fbf3fd5c8.mockapi.io/contact/contact-me', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name, email, subject, message
+                }),
+            });
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status} - ${response.statusText}`);
+            }
             setStatus("success");
             setForm({ name: "", email: "", subject: "", message: "" });
         } catch {
@@ -107,7 +104,7 @@ const Contact = () => {
                 </FadeIn>
 
                 {/* ── Two-column layout ── */}
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-6 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.75fr] gap-6 items-start">
 
                     {/* ── Left — Form ── */}
                     <FadeIn delay={120}>
@@ -180,7 +177,7 @@ const Contact = () => {
                                             type="text"
                                             value={form.subject}
                                             onChange={handleChange("subject")}
-                                            placeholder="Project inquiry / Job opportunity / Collaboration"
+                                            placeholder="Job opportunity"
                                             className={inputNormal}
                                         />
                                     </div>
@@ -194,7 +191,7 @@ const Contact = () => {
                                             rows={6}
                                             value={form.message}
                                             onChange={handleChange("message")}
-                                            placeholder="Tell me about your project, timeline, and budget..."
+                                            placeholder=""
                                             className={`${errors.message ? inputError : inputNormal} resize-none`}
                                         />
                                         <div className="flex items-center justify-between">
@@ -249,8 +246,7 @@ const Contact = () => {
                                 <h3 className="text-2xl font-normal text-white mb-3">Let's Connect</h3>
                                 <p className="text-base text-white/60 leading-relaxed mb-6">
                                     I'm always open to discussing new projects, creative ideas, or
-                                    opportunities. Whether it's freelance work or a full-time role —
-                                    feel free to reach out!
+                                    opportunities in full-time role — feel free to reach out!
                                 </p>
 
                                 {/* Contact info rows */}
@@ -290,32 +286,11 @@ const Contact = () => {
                                 <div>
                                     <p className="text-sm font-medium text-white">Available for Work</p>
                                     <p className="text-xs text-white/50 mt-0.5">
-                                        Open to freelance & full-time opportunities
+                                        Open to full-time opportunities
                                     </p>
                                 </div>
                             </div>
 
-                            {/* Socials */}
-                            <div className="rounded-2xl border border-white/8 bg-white/[0.04] p-6">
-                                <p className="text-sm text-white/50 mb-4 tracking-wide">
-                                    Connect with me
-                                </p>
-                                <div className="flex gap-3">
-                                    {socials.map(({ icon: Icon, label, href }) => (
-
-                                        <a key={label}
-                                            href={href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            aria-label={label}
-                                            className="flex-1 flex flex-col items-center gap-2 py-3 rounded-xl bg-white/5 border border-white/8 hover:bg-blue-500/10 hover:border-blue-500/25 hover:text-blue-400 text-white/50 transition-all duration-200 group"
-                                        >
-                                            <Icon size={18} className="group-hover:scale-110 transition-transform duration-200" />
-                                            <span className="text-[11px]">{label}</span>
-                                        </a>
-                                    ))}
-                                </div>
-                            </div>
 
                             {/* Response time */}
                             <div className="rounded-2xl border border-white/8 bg-white/[0.03] px-5 py-4 flex items-center justify-between">

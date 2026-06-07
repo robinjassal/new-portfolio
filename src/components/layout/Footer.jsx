@@ -14,10 +14,9 @@ const navLinks = [
 ];
 
 const socials = [
-    { icon: DiGithub, label: "GitHub", href: "https://github.com" },
-    { icon: LiaLinkedin, label: "LinkedIn", href: "https://linkedin.com" },
-    { icon: BsTwitterX, label: "Twitter", href: "https://twitter.com" },
-    { icon: Mail, label: "Email", href: "mailto:yourname@gmail.com" },
+    { icon: DiGithub, label: "GitHub", href: "https://github.com/robinjassal" },
+    { icon: LiaLinkedin, label: "LinkedIn", href: "https://in.linkedin.com/in/robin-jassal-918a7325b?trk=people-guest_people_search-card" },
+    { icon: Mail, label: "Email", href: "mailto:robinjassal601@gmail.com" },
 ];
 
 const Footer = () => {
@@ -52,7 +51,7 @@ const Footer = () => {
                                 </span>
                             </h3>
                             <p className="text-base text-white/50">
-                                Open to freelance projects and full-time opportunities.
+                                Open to full-time opportunities.
                             </p>
                         </div>
 
@@ -75,7 +74,7 @@ const Footer = () => {
                                 <Code2 size={18} className="text-blue-400" />
                             </div>
                             <span className="text-xl font-medium text-white tracking-wide">
-                                YourName<span className="text-blue-400">.</span>dev
+                                Robin Jassal<span className="text-blue-400">.</span>
                             </span>
                         </div>
 
@@ -87,7 +86,7 @@ const Footer = () => {
                         {/* Location */}
                         <div className="flex items-center gap-2 text-xs text-white/35">
                             <MapPin size={12} className="text-blue-400/70" />
-                            Ludhiana, Punjab, India
+                            Punjab, India
                         </div>
 
                         {/* Availability */}
@@ -178,9 +177,9 @@ const Footer = () => {
                 {/* ── Bottom bar ── */}
                 <div div className="border-t border-white/6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3" >
                     <p className="text-xs text-white/25 flex items-center gap-1.5 flex-wrap justify-center sm:justify-start">
-                        © {year} YourName. Made with
+                        © {year} Robin Jassal. Made with
                         <Heart size={11} className="text-blue-400 fill-blue-400" />
-                        in India.
+
                     </p>
 
                     <button

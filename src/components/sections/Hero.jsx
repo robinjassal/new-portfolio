@@ -28,20 +28,18 @@ function Hero() {
               <div className="inline-flex items-center gap-2.5 px-[18px] py-[11px] bg-linear-to-r from-primary/10 via-primary/15 to-primary/20 border border-primary/20 rounded-full mb-4">
                 <Star className="w-4 h-4 text-white fill-white" />
                 <span className="text-xs md:text-sm text-white tracking-[1.2px]">
-                  {PERSONAL_INFO.title}| {PERSONAL_INFO.location}{" "}
+                  {PERSONAL_INFO.title} | {PERSONAL_INFO.location}{" "}
                 </span>
               </div>
             </FadeIn>
             <FadeIn delay={100}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6 leading-tight">
-                Frontend Developer Portfolio
+                Frontend Developer
               </h1>
             </FadeIn>
             <FadeIn delay={200}>
               <p className="text-lg text-white/70 max-w-[550px] mb-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Similique incidunt excepturi, atque reiciendis nobis doloribus,
-                cumque harum laboriosam corrupti explicabo nam fugiat
+                Frontend Developer with 2 years of experience building responsive and user-friendly web applications using React.js, Next.js, HTML, CSS, and Tailwind CSS. Passionate about creating clean interfaces, optimizing performance, and delivering seamless user experiences.
               </p>
             </FadeIn>
             <FadeIn delay={300}>
@@ -55,16 +53,16 @@ function Hero() {
               </button>
             </FadeIn>
             <FadeIn delay={400}>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-14 max-w-full">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-full">
                 {STATS.map((stat, i) => (
                   <div
                     key={i}
                     className="text-center border-r border-white/70 pr-8 xl:pr-10 last:border-r-0"
                   >
-                    <div className="text-2xl font-normal text-primary mb-3 font-mono">
+                    <div className="text-2xl font-semibold text-primary mb-3">
                       {stat?.value}
                     </div>
-                    <p className="text-sm text-white leading-snug min-w-max">
+                    <p className="text-sm md:text-base text-white leading-snug">
                       {stat?.label}
                     </p>
                   </div>

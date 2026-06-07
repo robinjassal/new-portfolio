@@ -3,50 +3,55 @@ import { ExternalLink, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import FadeIn from "../animations/FadeIn";
 import RadialGradientBackground from "../backgrounds/RadialGradientBackground";
 import { BsGithub } from "react-icons/bs";
+import edufant from "../../assets/edufant.png"
+import brownliving from "../../assets/brownliving.png"
+import marketyourdaycare from "../../assets/marketyourdaycare.png"
+import flipbook from "../../assets/flipbook.png"
 
 const projects = [
     {
-        title: "E-Commerce Platform",
-        category: "Full Stack",
+        title: "Edufant JoSAA Counselling Tool",
+        category: "Web App",
         description:
-            "Full-stack online shopping application with real-time inventory, Stripe payments, and an admin dashboard. Built for scale with server-side rendering and optimistic UI updates.",
-        image: "/projects/ecommerce.png",
-        tags: ["Next.js", "TypeScript", "Stripe", "MongoDB", "Tailwind CSS"],
-        live: "https://example.com",
-        github: "https://github.com",
+            "Built the full website and analytics dashboard with intuitive UI for browsing colleges, cutoffs, and branches.Integrated JOSAA listing APIs to dynamically fetch and display college data.",
+        image: edufant,
+        tags: ["Next.js", "JavaScript", "Cashfree", "Api Integration", "Tailwind CSS"],
+        live: "https://edufant.in",
+        github: "https://github.com/robinjassal",
         featured: true,
     },
     {
-        title: "Task Management Dashboard",
-        category: "Web App",
-        description:
-            "Collaborative project management tool with drag-and-drop kanban boards, real-time updates via WebSockets, and team workspace management.",
-        image: "/projects/taskboard.png",
-        tags: ["React.js", "Socket.IO", "Node.js", "Express", "MongoDB"],
-        live: "https://example.com",
-        github: "https://github.com",
-        featured: false,
-    },
-    {
-        title: "Component Library",
+        title: "Brownliving's Seller Dashboard",
         category: "UI Components",
         description:
-            "Comprehensive React component library with 50+ accessible, themeable components. Includes Storybook docs, dark mode support, and full TypeScript types.",
-        image: "/projects/components.png",
-        tags: ["React.js", "TypeScript", "Storybook", "Tailwind CSS", "Radix UI"],
-        live: "https://example.com",
-        github: "https://github.com",
+            "Designed the UI and implemented mobile-responsive layouts for an admin & seller dashboard.Integrated product listing and form APIs; resolved critical front-end bugs across the platform",
+        image: brownliving,
+        tags: ["React.js", "API", "Css", "Tailwind",],
+        live: "https://grow.brownliving.in/",
+        github: "https://github.com/robinjassal",
+
         featured: false,
     },
     {
-        title: "Developer Portfolio",
-        category: "Web App",
+        title: "Market Your Daycare Website",
+        category: "Website",
         description:
-            "Modern developer portfolio with smooth animations, dark theme, and optimized performance. Scores 98+ on Lighthouse with zero-dependency animations.",
-        image: "/projects/portfolio.png",
-        tags: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
-        live: "https://example.com",
-        github: "https://github.com",
+            "Built a conversion-focused marketing website with responsive design and smooth navigation.",
+        image: marketyourdaycare,
+        tags: ["React.js", "TypeScript", "Storybook", "Tailwind CSS", "Radix UI"],
+        live: "https://marketyourdaycare.com",
+        github: "https://github.com/robinjassal",
+        featured: false,
+    },
+    {
+        title: "Electricmarshmallow Story Flipbook",
+        category: "Animations Flipbook",
+        description:
+            "Built custom page-flip animations and interactive transitions using HTML, CSS, JavaScript, and GSAP for electric marshmallow group.",
+        image: flipbook,
+        tags: ["Html", "CSS", "Js", "GSAP"],
+        live: "https://electricmarshmallow-thepark.netlify.app",
+        github: "https://github.com/robinjassal",
         featured: false,
     },
 ];

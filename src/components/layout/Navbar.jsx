@@ -29,10 +29,10 @@ function Navbar() {
       <div className="max-w-[1320px] mx-auto px-5">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Code size={14} className="text-primary" />
+            <Code size={16} className="text-primary" />
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-2xl font-bold bg-linear-to-r from-primary via-primary/50 to-primary/30 bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-300"
+              className="text-2xl md:text-3xl font-bold bg-linear-to-r from-primary via-primary/80 to-primary/30 bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-300"
               aria-label="home"
             >
               {PERSONAL_INFO?.name?.split(" ")[0]}
@@ -64,11 +64,10 @@ function Navbar() {
         </div>
       </div>
       <div
-        className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
-          isMenuOpen
-            ? "max-h-screen opacity-100"
-            : "max-h-0 opacity-0 pointer-events-none"
-        }`}
+        className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${isMenuOpen
+          ? "max-h-screen opacity-100"
+          : "max-h-0 opacity-0 pointer-events-none"
+          }`}
       >
         <div className="mx-4 mt-3 rounded-3xl border border-white/10 bg-black/70 backdrop-blur-xl p-4">
           <div className="flex flex-col gap-2">
@@ -76,11 +75,10 @@ function Navbar() {
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
-                className={`block w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  activeSection === link.id
-                    ? "bg-primary text-white shadow-lg shadow-primary/20"
-                    : "text-white/70 hover:text-white hover:bg-white/10"
-                }`}
+                className={`block w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300 ${activeSection === link.id
+                  ? "bg-primary text-white shadow-lg shadow-primary/20"
+                  : "text-white/70 hover:text-white hover:bg-white/10"
+                  }`}
               >
                 {link.label}
               </button>

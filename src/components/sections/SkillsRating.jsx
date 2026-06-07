@@ -2,31 +2,35 @@ import React from "react";
 import {
     SiReact, SiNextdotjs, SiJavascript,
     SiTailwindcss, SiHtml5, SiCss,
+    SiPostman,
+    SiRedux,
 } from "react-icons/si";
-import { GitBranch, Smartphone, Zap, Star } from "lucide-react";
+import { GitBranch, Smartphone, Star } from "lucide-react";
 import { FiFigma } from "react-icons/fi";
 import FadeIn from "../animations/FadeIn";
 import RadialGradientBackground from "../backgrounds/RadialGradientBackground";
+import { FaBolt, FaChartLine, FaFire, FaSeedling } from "react-icons/fa";
 
 const categories = [
     {
         title: "Frontend Development",
         skills: [
-            { name: "React.js", icon: SiReact, years: "3+ years", level: "Expert", pct: 92 },
-            { name: "JavaScript", icon: SiJavascript, years: "4+ years", level: "Expert", pct: 90 },
-            { name: "Next.js", icon: SiNextdotjs, years: "2+ years", level: "Advanced", pct: 78 },
-            { name: "Tailwind CSS", icon: SiTailwindcss, years: "3+ years", level: "Expert", pct: 88 },
-            { name: "HTML", icon: SiHtml5, years: "4+ years", level: "Expert", pct: 95 },
-            { name: "CSS", icon: SiCss, years: "4+ years", level: "Expert", pct: 90 },
+            { name: "React.js", icon: SiReact, years: "2+ years", level: "Intermediate", pct: 76 },
+            { name: "JavaScript", icon: SiJavascript, years: "2+ years", level: "Intermediate", pct: 80 },
+            { name: "Next.js", icon: SiNextdotjs, years: "1+ years", level: "Intermediate", pct: 75 },
+            { name: "Tailwind CSS", icon: SiTailwindcss, years: "2+ years", level: "Advanced", pct: 85 },
+            { name: "HTML", icon: SiHtml5, years: "2+ years", level: "Expert", pct: 85 },
+            { name: "CSS", icon: SiCss, years: "2+ years", level: "Expert", pct: 80 },
         ],
     },
     {
         title: "Tools & Others",
         skills: [
-            { name: "Git & GitHub", icon: GitBranch, years: "3+ years", level: "Advanced", pct: 82 },
-            { name: "Responsive Design", icon: Smartphone, years: "3+ years", level: "Expert", pct: 90 },
-            { name: "Figma", icon: FiFigma, years: "2+ years", level: "Intermediate", pct: 65 },
-            { name: "Vite", icon: Zap, years: "1+ years", level: "Advanced", pct: 75 },
+            { name: "Git & GitHub", icon: GitBranch, years: "2+ years", level: "Intermediate", pct: 65 },
+            { name: "Responsive Design", icon: Smartphone, years: "2+ years", level: "Advanced", pct: 80 },
+            { name: "Figma", icon: FiFigma, years: "2+ years", level: "Intermediate", pct: 68 },
+            { name: "Postman", icon: SiPostman, years: "2+ years", level: "Intermediate", pct: 75 },
+            { name: "Redux Toolkit", icon: SiRedux, years: "1+ years", level: "Beginner", pct: 55 },
         ],
     },
 ];
@@ -36,26 +40,28 @@ const levelConfig = {
     Expert: {
         badge: "bg-blue-500/15 text-blue-300 border-blue-500/30",
         bar: "from-blue-600 via-blue-400 to-cyan-300",
-        flame: true,
-        emoji: "🔥",
+        icon: FaFire,
     },
     Advanced: {
         badge: "bg-indigo-500/15 text-indigo-300 border-indigo-500/30",
         bar: "from-indigo-600 via-indigo-400 to-blue-300",
-        flame: false,
-        emoji: "⚡",
+        icon: FaBolt,
     },
     Intermediate: {
-        badge: "bg-white/8 text-white/50 border-white/15",
-        bar: "from-slate-600 via-slate-400 to-slate-300",
-        flame: false,
-        emoji: "📈",
+        badge: "bg-amber-500/15 text-amber-300 border-amber-500/30",
+        bar: "from-amber-600 via-amber-400 to-yellow-300",
+        icon: FaChartLine,
+    },
+    Beginner: {
+        badge: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
+        bar: "from-emerald-600 via-emerald-400 to-green-300",
+        icon: FaSeedling,
     },
 };
 
 const SkillRow = ({ skill }) => {
-    const Icon = skill.icon;
     const config = levelConfig[skill.level];
+    const Icon = config.icon;
 
     return (
         <div className="group">
@@ -74,8 +80,11 @@ const SkillRow = ({ skill }) => {
                 </div>
 
                 {/* Right — badge */}
-                <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full border ${config.badge}`}>
-                    <span>{config.emoji}</span>
+
+                <span
+                    className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full border ${config.badge}`}
+                >
+                    <Icon className="w-3 h-3" />
                     {skill.level}
                 </span>
             </div>
@@ -100,12 +109,12 @@ const SkillRow = ({ skill }) => {
                 </div>
 
                 {/* Percentage label */}
-                <span
+                {/* <span
                     className="absolute -top-5 text-[10px] text-white/30 font-mono"
                     style={{ left: `${skill.pct}%`, transform: "translateX(-50%)" }}
                 >
                     {skill.pct}%
-                </span>
+                </span> */}
             </div>
         </div>
     );
@@ -138,23 +147,6 @@ const SkillsRating = () => (
                     <p className="text-lg text-white/70 max-w-xl mx-auto">
                         A comprehensive overview of my technical skills and proficiency levels
                     </p>
-                </div>
-            </FadeIn>
-
-            {/* ── Legend ── */}
-            <FadeIn delay={100}>
-                <div className="flex flex-wrap items-center justify-center gap-5 mb-12">
-                    {Object.entries(levelConfig).map(([level, cfg]) => (
-                        <div key={level} className="flex items-center gap-2">
-                            <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full border ${cfg.badge}`}>
-                                <span>{cfg.emoji}</span>
-                                {level}
-                            </span>
-                        </div>
-                    ))}
-                    <div className="flex items-center gap-2 text-xs text-white/35">
-                        <span>🔥 = bar tip at high proficiency</span>
-                    </div>
                 </div>
             </FadeIn>
 
