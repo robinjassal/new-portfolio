@@ -1,11 +1,11 @@
 // PERSONAL_INFO as array of key-value pairs
 export const PERSONAL_INFO = {
   name: "Robin Jassal",
-  title: "Frontend Developer & UI/UX Enthusiast",
+  title: "Frontend Developer | MERN Stack",
   email: "robinjassal601@gmail.com",
   location: "Punjab",
   tagline: "Crafting seamless digital experiences with modern web technology",
-  resume: "/resume.pdf",
+  resume: "/Robin_Jassal_Resume.pdf",
   bio: [
     " I'm a Frontend Developer with 2+ years of experience building modern, responsive, and user-focused web applications.",
     "I specialize in React.js, Next.js, JavaScript, HTML, CSS, and Tailwind CSS, with a strong focus on performance, accessibility, and clean code.",

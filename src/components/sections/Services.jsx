@@ -1,17 +1,23 @@
-import React, { useState } from "react";
 import {
     Code2, Smartphone, Palette, Layers,
-    Zap, GitBranch, Star, ArrowRight,
+    Zap, Server, Star, ArrowRight,
 } from "lucide-react";
 import FadeIn from "../animations/FadeIn";
 import RadialGradientBackground from "../backgrounds/RadialGradientBackground";
 
+// The first two services render as wide cards, the rest as narrow cards.
 const services = [
     {
         icon: Code2,
         title: "Frontend Development",
         desc: "Building performant, accessible web applications using React, Next.js, and modern JavaScript. Every project is optimized for speed, SEO, and long-term maintainability.",
-        points: ["React & Next.js", "TypeScript", "REST API Integration"],
+        points: ["React & Next.js", "Redux Toolkit", "REST API Integration"],
+    },
+    {
+        icon: Server,
+        title: "Backend & API Development",
+        desc: "Building REST APIs and full-stack MERN features with Node.js, Express.js, and MongoDB, including JWT authentication, Razorpay payments, and SMTP email with Nodemailer.",
+        points: ["Node.js & Express.js", "MongoDB", "Auth & Payments"],
     },
     {
         icon: Smartphone,
@@ -37,60 +43,61 @@ const services = [
         desc: "Auditing and improving web performance through code splitting, lazy loading, caching strategies, and Core Web Vitals tuning.",
         points: ["Lighthouse 90+", "Lazy Loading", "Bundle Optimization"],
     },
-    {
-        icon: GitBranch,
-        title: "Code Review & Consulting",
-        desc: "Providing actionable code reviews, architecture advice, and technical guidance to help teams ship cleaner, more scalable frontends.",
-        points: ["Architecture Advice", "Best Practices", "Team Mentoring"],
-    },
 ];
 
 const ServiceCard = ({ s, large = false, delay = 0 }) => {
-    const [hovered, setHovered] = useState(false);
     const Icon = s.icon;
 
     return (
         <FadeIn delay={delay}>
             <div
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
                 className={`group relative rounded-2xl border border-white/8 bg-white/[0.04] hover:bg-white/[0.07] hover:border-blue-500/30 transition-all duration-300 cursor-default overflow-hidden h-full ${large ? "p-7 md:p-9" : "p-6"
                     }`}
             >
                 {/* Hover glow */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className={`absolute -top-20 -left-20 rounded-full blur-3xl bg-blue-500/8 ${large ? "w-72 h-72" : "w-44 h-44"}`} />
+                    <div
+                        className={`absolute -top-20 -left-20 rounded-full blur-3xl bg-blue-500/8 ${large ? "w-72 h-72" : "w-44 h-44"
+                            }`}
+                    />
                 </div>
 
                 <div className="relative z-10 flex flex-col h-full">
                     {/* Icon */}
                     <div
-                        className={`rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/15 group-hover:border-blue-500/35 transition-all duration-300 mb-5 ${large ? "w-14 h-14 mb-6" : "w-12 h-12"
+                        className={`rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/15 group-hover:border-blue-500/35 transition-all duration-300 ${large ? "w-14 h-14 mb-6" : "w-12 h-12 mb-5"
                             }`}
+                        aria-hidden="true"
                     >
                         <Icon size={large ? 24 : 20} className="text-blue-400" />
                     </div>
 
-                    <h3 className={`font-normal text-white leading-snug mb-2.5 ${large ? "text-xl md:text-2xl mb-3" : "text-base md:text-lg"}`}>
+                    <h3
+                        className={`font-normal text-white leading-snug ${large ? "text-xl md:text-2xl mb-3" : "text-base md:text-lg mb-2.5"
+                            }`}
+                    >
                         {s.title}
                     </h3>
 
-                    <p className={`text-white/55 leading-relaxed flex-1 ${large ? "text-base mb-6" : "text-sm mb-5"}`}>
+                    <p
+                        className={`text-white/55 leading-relaxed flex-1 ${large ? "text-base mb-6" : "text-sm mb-5"
+                            }`}
+                    >
                         {s.desc}
                     </p>
 
                     {/* Chips */}
-                    <div className="flex flex-wrap gap-2">
+                    <ul className="flex flex-wrap gap-2">
                         {s.points.map((pt) => (
-                            <span
+                            <li
                                 key={pt}
                                 className={`rounded-full bg-white/5 text-white/45 border border-white/8 group-hover:bg-primary/10 group-hover:text-blue-300 group-hover:border-primary/20 transition-all duration-300 ${large ? "text-xs px-3 py-1.5" : "text-[11px] px-2.5 py-1"
                                     }`}
                             >
                                 {pt}
-                            </span>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             </div>
         </FadeIn>
@@ -100,6 +107,7 @@ const ServiceCard = ({ s, large = false, delay = 0 }) => {
 const Services = () => (
     <section
         id="services"
+        aria-labelledby="services-heading"
         className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-background"
     >
         <RadialGradientBackground variant="about" />
@@ -115,14 +123,17 @@ const Services = () => (
                             What I Offer
                         </span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-5 leading-tight">
+                    <h2
+                        id="services-heading"
+                        className="text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-5 leading-tight"
+                    >
                         Services &{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
                             Capabilities
                         </span>
                     </h2>
                     <p className="text-lg text-white/70 max-w-xl mx-auto">
-                        End-to-end frontend expertise — from first pixel to production deployment
+                        From the first pixel to a working backend and live deployment
                     </p>
                 </div>
             </FadeIn>
@@ -130,14 +141,14 @@ const Services = () => (
             {/* ── Row 1: 2 wide cards ── */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 {services.slice(0, 2).map((s, i) => (
-                    <ServiceCard key={i} s={s} large delay={100 + i * 60} />
+                    <ServiceCard key={s.title} s={s} large delay={100 + i * 60} />
                 ))}
             </div>
 
             {/* ── Row 2: 4 narrow cards ── */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {services.slice(2).map((s, i) => (
-                    <ServiceCard key={i} s={s} large={false} delay={220 + i * 50} />
+                    <ServiceCard key={s.title} s={s} delay={220 + i * 50} />
                 ))}
             </div>
 
@@ -153,16 +164,20 @@ const Services = () => (
                         </p>
                     </div>
 
-                    <a href="#contact"
+                    <a
+                        href="#contact"
                         className="inline-flex items-center gap-2.5 bg-white text-[#212121] rounded-lg px-6 py-3 text-sm font-medium border border-white/30 hover:bg-white/90 transition-colors duration-200 whitespace-nowrap shrink-0 group"
                     >
                         Let's Work Together
-                        <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+                        <ArrowRight
+                            size={15}
+                            className="group-hover:translate-x-0.5 transition-transform duration-200"
+                        />
                     </a>
                 </div>
             </FadeIn>
-        </div >
-    </section >
+        </div>
+    </section>
 );
 
 export default Services;

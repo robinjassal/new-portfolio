@@ -1,12 +1,11 @@
-import { useState } from "react";
-import { ChevronDown, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import {
   SiNextdotjs,
   SiTailwindcss,
-  SiHtml5,
   SiReact,
-  SiCss,
-  SiJavascript,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
 } from "react-icons/si";
 import { PERSONAL_INFO, STATS } from "../../utils/constants";
 import { scrollToSection } from "../../hooks/useScrollSpy";
@@ -14,6 +13,14 @@ import FadeIn from "../animations/FadeIn";
 import RadialGradientBackground from "../backgrounds/RadialGradientBackground";
 import hero from "../../assets/hero.png";
 
+const TECH_ICONS = [
+  { Icon: SiMongodb, label: "MongoDB" },
+  { Icon: SiExpress, label: "Express.js" },
+  { Icon: SiReact, label: "React" },
+  { Icon: SiNodedotjs, label: "Node.js" },
+  { Icon: SiNextdotjs, label: "Next.js" },
+  { Icon: SiTailwindcss, label: "Tailwind CSS" },
+];
 function Hero() {
   return (
     <section className="relative min-h-screen flex items-center bg-background">
@@ -28,18 +35,22 @@ function Hero() {
               <div className="inline-flex items-center gap-2.5 px-[18px] py-[11px] bg-linear-to-r from-primary/10 via-primary/15 to-primary/20 border border-primary/20 rounded-full mb-4">
                 <Star className="w-4 h-4 text-white fill-white" />
                 <span className="text-xs md:text-sm text-white tracking-[1.2px]">
-                  {PERSONAL_INFO.title} | {PERSONAL_INFO.location}{" "}
+                  {PERSONAL_INFO.title} - {PERSONAL_INFO.location}{" "}
                 </span>
               </div>
             </FadeIn>
             <FadeIn delay={100}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6 leading-tight">
-                Frontend Developer
+                Frontend Developer <span className="text-primary">| MERN Stack</span>
               </h1>
             </FadeIn>
             <FadeIn delay={200}>
               <p className="text-lg text-white/70 max-w-[550px] mb-6">
-                Frontend Developer with 2 years of experience building responsive and user-friendly web applications using React.js, Next.js, HTML, CSS, and Tailwind CSS. Passionate about creating clean interfaces, optimizing performance, and delivering seamless user experiences.
+                Frontend Developer with 2+ years of experience building responsive,
+                user-friendly web applications using React.js, Next.js, and JavaScript, with
+                hands-on full-stack MERN experience. I build REST APIs, authentication, and
+                payment integrations using Node.js, Express.js, and MongoDB, and turn Figma
+                designs into pixel-perfect UI.
               </p>
             </FadeIn>
             <FadeIn delay={300}>
@@ -87,24 +98,18 @@ function Hero() {
                     />
                   </div>
                   {/* technologies logos */}
-                  <div className="absolute bottom-6 left-6 z-20">
+                  <div className="absolute bottom-6 left-6 right-6 z-20">
                     <FadeIn delay={500}>
-                      <div className="flex items-center gap-4 bg-black/40 backdrop-blur-sm border-primary/10 rounded-full px-6 py-2.5">
-                        <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                          <SiHtml5 className="w-full h-full text-primary" />
-                        </div>
-                        <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                          <SiCss className="w-full h-full text-primary" />
-                        </div>
-                        <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                          <SiJavascript className="w-full h-full text-primary" />
-                        </div>
-                        <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                          <SiNextdotjs className="w-full h-full text-primary" />
-                        </div>
-                        <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                          <SiTailwindcss className="w-full h-full text-primary" />
-                        </div>
+                      <div className="inline-flex flex-wrap items-center gap-4 bg-black/40 backdrop-blur-sm border border-primary/10 rounded-full px-6 py-2.5">
+                        {TECH_ICONS.map(({ Icon, label }) => (
+                          <div
+                            key={label}
+                            title={label}
+                            className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300"
+                          >
+                            <Icon className="w-full h-full text-primary" />
+                          </div>
+                        ))}
                       </div>
                     </FadeIn>
                   </div>

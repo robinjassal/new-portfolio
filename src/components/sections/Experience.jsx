@@ -1,4 +1,3 @@
-import React from "react";
 import {
     MapPin, Clock, Calendar, Building2, CheckCircle2, Star,
 } from "lucide-react";
@@ -10,20 +9,21 @@ const experiences = [
         role: "Frontend Developer",
         company: "NJGRAPHICA",
         type: "current",
-        badge: "Current",
+        badge: "Latest",
         employment: "Full-time",
-        period: "Nov 2025 — Present",
-        duration: "Present",
+        period: "Nov 2025 — Aug 2026",
+        duration: "9 months",
         location: "Mandi Gobindgarh",
         logo: "/njgraphica-logo.png",
         logoFallback: "NJ",
         description:
-            "Developing and delivering modern client-facing web applications using React.js, Next.js, and Tailwind CSS, transforming Figma designs into high-performance, responsive user interfaces.",
+            "Built client websites and admin dashboards with React.js, Next.js, and Tailwind CSS from Figma designs, and extended a client project to the backend with an Express.js API and SMTP email.",
         bullets: [
-            "Developed and delivered client landing pages using React.js, Next.js, and Tailwind CSS from Figma designs",
-            "Collaborated with design and backend teams to build responsive, pixel-perfect user interfaces",
-            "Implemented component-driven architecture and reusable UI patterns across projects",
-            "Ensured cross-browser compatibility and responsive behavior across all device sizes",
+            "Built responsive client websites and admin dashboards using React.js, Next.js, and Tailwind CSS from Figma designs",
+            "Developed an Express.js backend with REST APIs for blog content management on a client project",
+            "Integrated Nodemailer for SMTP-based email, powering contact and enquiry flows",
+            "Built reusable components, managed deployments, and maintained code quality through peer reviews",
+            "Improved SEO and performance with semantic HTML, meta tags, and an optimized site structure",
         ],
     },
     {
@@ -38,12 +38,12 @@ const experiences = [
         logo: "/appoctet-logo.jpg",
         logoFallback: "AT",
         description:
-            "Built scalable admin dashboards and web applications for multi-vendor platforms, focusing on responsive UI development, API integration, and reusable component architecture.",
+            "Built admin dashboards and web applications for a multi-vendor platform, focusing on responsive UI, REST API integration, and reusable component architecture.",
         bullets: [
-            "Built responsive UI for a multi-vendor store admin panel using React.js, Tailwind CSS, HTML, and CSS",
-            "Integrated RESTful APIs to manage dynamic data and application workflows",
-            "Created reusable component libraries to improve development speed and scalability",
-            "Collaborated in Agile sprints, code reviews, and cross-functional product discussions",
+            "Built the UI for a multi-vendor store admin panel using React.js, Tailwind CSS, HTML, and CSS",
+            "Integrated REST APIs and managed application data and state with Redux",
+            "Created reusable components to keep the UI consistent and reduce duplicate code",
+            "Improved page performance by reducing unnecessary re-renders and optimizing component loading",
         ],
     },
 ];
@@ -74,7 +74,7 @@ const Experience = () => (
                     </h2>
                     <p className="text-lg text-white/70 max-w-xl mx-auto">
                         Companies I've worked with, products I've contributed to, and
-                        the frontend systems I helped build.
+                        the frontend and backend systems I helped build.
                     </p>
                 </div>
             </FadeIn>
@@ -209,7 +209,7 @@ const Experience = () => (
                 <FadeIn delay={320}>
                     <div className="flex items-center gap-3 mt-10">
                         <div className="h-px flex-1 bg-white/8" />
-                        <span className="text-xs text-white/30">Start of journey ·June  2024</span>
+                        <span className="text-xs text-white/30">Start of journey · June 2024</span>
                         <div className="h-px flex-1 bg-white/8" />
                     </div>
                 </FadeIn>

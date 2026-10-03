@@ -1,8 +1,14 @@
-import React from "react";
 import { Download, Code2, Sparkles, Zap } from "lucide-react";
 import {
-    SiReact, SiNextdotjs, SiTailwindcss,
-    SiJavascript, SiHtml5, SiCss,
+    SiReact,
+    SiNextdotjs,
+    SiTailwindcss,
+    SiJavascript,
+    SiHtml5,
+    SiCss,
+    SiNodedotjs,
+    SiExpress,
+    SiMongodb,
 } from "react-icons/si";
 import { PERSONAL_INFO } from "../../utils/constants";
 import FadeIn from "../animations/FadeIn";
@@ -12,6 +18,9 @@ const skills = [
     { name: "React.js", icon: SiReact, color: "#61DAFB" },
     { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
     { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+    { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
+    { name: "Express.js", icon: SiExpress, color: "#ffffff" },
+    { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
     { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
     { name: "HTML", icon: SiHtml5, color: "#E34F26" },
     { name: "CSS", icon: SiCss, color: "#1572B6" },
@@ -35,7 +44,7 @@ const About = () => (
                         <div className="inline-flex items-center gap-2.5 px-[18px] py-[11px] bg-primary/10 border border-primary/20 rounded-full w-fit">
                             <Code2 className="w-4 h-4 text-white" />
                             <span className="text-xs md:text-sm text-white tracking-[1.2px]">
-                                Frontend Developer
+                                Frontend Developer | MERN Stack
                             </span>
                             <Sparkles className="w-4 h-4 text-white" />
                         </div>
@@ -109,8 +118,9 @@ const About = () => (
                             <div>
                                 <h3 className="text-lg font-medium text-white mb-1.5">Expertise</h3>
                                 <p className="text-base text-white/55 leading-relaxed">
-                                    Specialized in building scalable web applications with modern
-                                    technologies and best practices.
+                                    Building scalable web applications across the MERN stack, from
+                                    pixel-perfect React and Next.js interfaces to REST APIs,
+                                    authentication, and payment integrations.
                                 </p>
                             </div>
                         </div>
@@ -150,14 +160,15 @@ const About = () => (
                                 Interested in working together? I'm open for full-time opportunities.
                             </p>
                             <div className="flex flex-wrap gap-3">
-
-                                < a href={`mailto:${PERSONAL_INFO.email}`}
+                                <a
+                                    href={`mailto:${PERSONAL_INFO.email}`}
                                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-[#212121] text-sm font-medium hover:bg-white/90 transition-all duration-200 hover:-translate-y-0.5"
                                 >
                                     Let's Talk
                                 </a>
 
-                                <a href="#projects"
+                                <a
+                                    href="#projects"
                                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/10 hover:bg-white/15 text-white text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 border border-white/10"
                                 >
                                     View Projects
@@ -167,9 +178,9 @@ const About = () => (
 
                     </div>
                 </FadeIn>
-            </div >
-        </div >
-    </section >
+            </div>
+        </div>
+    </section>
 );
 
 export default About;
